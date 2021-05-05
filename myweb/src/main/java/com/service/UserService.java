@@ -1,5 +1,10 @@
 package com.service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +25,20 @@ public class UserService {
 		user.setLastname(dto.getFirstname());
 		
 		return userrepository.save(user);
+	}
+
+	public List<User> list() {
+		return userrepository.findAll();
+	}
+	public List<User> listone(UserDTO dto) {
+		List<User> ar = (List<User>) userrepository.findByFirstname(dto.getFirstname());
+		ar.addAll(userrepository.findByLastname(dto.getFirstname()));
+		HashSet<User> buf = new HashSet<>(ar);
+		return new ArrayList<>(buf);
+	}
+	
+	public void delete(Long id) {
+		userrepository.deleteById(id);
 	}
 	
 }

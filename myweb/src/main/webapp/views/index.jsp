@@ -3,14 +3,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	*{
+	padding:0;
+	margin: 0;
+	}
+	a{
+		display: block;
+		width: 100px;
+		height: 50px;
+		margin: 10px;
+		background: gray;
+		float: left;
+		color: white;
+		line-height: 50px;
+		text-align: center;
+	}
+</style>
 <meta charset="UTF-8">
 <title>인덱스</title>
 </head>
 <body>
-<form action="users" method="POST">
-	<input type="text" name="firstname"/>
-	<input type="text" name="lastname"/>
-	<input type="submit" />
-</form>
+<a href="/input">입력</a>
+<a href="/users/all">모든 조회</a>
+<a href="/users/one">하나 조회</a>
+<a href="/users/delete">삭제</a>
 </body>
 </html>
