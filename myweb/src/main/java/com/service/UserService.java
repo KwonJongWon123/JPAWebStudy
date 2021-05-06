@@ -3,6 +3,7 @@ package com.service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,12 @@ public class UserService {
 	public void delete(Long id) {
 		userrepository.deleteById(id);
 	}
+	
+	public void update(User user1) {
+		Optional<User> user = userrepository.findById(user1.getId());
+		user.get().setFirstname(user1.getFirstname());
+		user.get().setLastname(user1.getLastname());
+		userrepository.save(user.get());
+	}  
 	
 }

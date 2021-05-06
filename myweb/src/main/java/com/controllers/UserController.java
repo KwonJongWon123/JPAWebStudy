@@ -63,4 +63,18 @@ public class UserController {
 		userservice.delete(choice);
 		return "index";
 	}
+	
+	//수정
+	@RequestMapping(value = "/users/update")
+	public String userUpdate(HttpServletRequest req){
+		req.setAttribute("list", userservice.list());
+		return "updatelist";
+	}
+	
+	@RequestMapping(value = "/users/updateReg", method = RequestMethod.POST)
+	public String userUpdateForm(User user,HttpServletRequest req){
+		userservice.update(user);
+		return "index";
+	}
+	
 }

@@ -28,5 +28,6 @@
 <a href="/users/all">모든 조회</a>
 <a href="/users/one">하나 조회</a>
 <a href="/users/delete">삭제</a>
+<a href="/users/update">수정</a>
 </body>
 </html>
